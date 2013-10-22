@@ -727,7 +727,7 @@ dc.baseChart = function (_chart) {
     var _filterPrinter = dc.printers.filters;
 
     var _renderlets = [];
-    var _mandatoryAttributes = ['dimension', 'group'];
+    var _mandatoryAttributes = ['dimension'];
 
     var _chartGroup = dc.constants.DEFAULT_CHART_GROUP;
 
@@ -1074,6 +1074,8 @@ dc.baseChart = function (_chart) {
 
         if (_mandatoryAttributes)
             _mandatoryAttributes.forEach(checkForMandatoryAttributes);
+
+        if (_group === undefined) _group = _dimension.group();
 
         var result = _chart.doRender();
 
