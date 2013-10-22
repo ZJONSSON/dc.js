@@ -837,6 +837,7 @@ dc.baseChart = function (_chart) {
     **/
     _chart.group = function (g, name) {
         if (!arguments.length) return _group;
+        if (typeof g  === 'function') g = g.call(this,_dimension);
         _group = g;
         _chart.expireCache();
         if (typeof name === 'string') _chart._setGroupName(_group, name);
